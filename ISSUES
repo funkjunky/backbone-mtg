@@ -1,0 +1,14 @@
+A list of issues that I will solve later
+---
+- the filter for main and sideboard is done with ugly code.
+	soln: Use the two way filter suggested on stackoverflow: http://stackoverflow.com/questions/11616636/how-to-do-two-way-filtering-in-angular-js
+- nice formatting
+	soln: use bootstrap stuff to make every look ince and fit nicely.
+- the typeahead doesn't work well with angular.
+	soln: use the angular typeahead library
+- the visual side and hidden board aren't there yet.
+	soln: create a filter for them and show them. side is minimized and hidden is minimized and only text, organized by colour. 
+- code is disorganized
+	soln: put things in their own files and organize the structure
+- no tests
+	soln: write runners to test everything.

@@ -1,0 +1,10 @@
+<div>
+	<div class="cardimage" style="width:199px;height:285px;"><img src="magicimgs/{{attributes.set_code}}/{{attributes.name}}.jpg"></img></div>
+<div class="cardtext" style="width:199px;height:285px;display:none">
+{{attributes.name}} - {{attributes.manacost}}<br />
+{{attributes.type}} - {{attributes.rarity}}<br />
+{{attributes.ability}}
+</div>
+<!--the ng-model, probably doesn't need to be so unique... create a scope-->
+<div><input type="checkbox" id="toggle_{{attributes.id}}" class="cardvisualtoggle" /><label for="toggle_{{attributes.id}}">Text</label> - <span>{{attributes.rating}}</span></div>
+</div>

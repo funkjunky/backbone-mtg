@@ -1,0 +1,35 @@
+TODO
+---
+- polish the deck builder
+	- use bootstraps css to make the buttons and image all nicely compressed.
+		- basic layout using grid
+		- minimizable blocks for each block
+		- fine details on cards
+		- compress everything, so it can fit on my laptop browser. Less padding probably, or move things around, whatever.
+		- make it look nice and be usable in css
+		- style loose ends
+	- write the angular 2 way thing of doing the text box and the buttons
+	- STOP, try backbonejs
+- write the same deck builder and everything in backbonejs!
+	-try and make the nicest simplest code as possible.
+- polish the deck builder, using angular
+	**if backbone isn't all I had hoped, then back to angular :)**
+	- add sideboard hook
+	- add hidden hook [no partial, just write some html for each link]
+	- add a cardpool textbox below the rest and minimized by default.
+	- add a save of the json of the deck to local storage and provide the ability to load using a drop down.
+	-add any polish [still just m14 though]
+- write the sealed pool app
+	- basically, we'll choose the cards for the packs, then show them to the user, then provide a button that the user can press to be brought to the deck building page with the pool as the pool, and all cards in the pool are put in the sideboard to start.
+	- make a function that builds the packs from the json of m14
+		- remember to mark a foil
+	- create the packs, then give them as a list of cards to be the cardpool, with all set to the sideboard.
+- write a node app that can server the pages, also that gives a service to save decks, and can server the json files and images.
+- figure out how the draft tool will work seamlessly [with netowkring and such]
+- write the draft tool
+- test the draft tool with 2 different computers of my own. Use a proxy if it happens to be necessary.
+- convert everything to use pouchDB
+	[use index of card number and set combined]
+- replicate pouchDB to couchDB on server
+- figure out if we should even have a serverside? If so how to do it minimilistically??? perhaps with nodejs. Keep in mind we may want semantic value without js... so html served straight up. Technically the drafter could be done without js at all, just requests.
+-fix all issues in the issues list.

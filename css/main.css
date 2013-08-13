@@ -1,0 +1,41 @@
+.inset_header
+{
+	position: relative;
+	margin: 15px 0;
+	padding: 39px 19px 14px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+.inset_header:after
+{
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	color: #9da0a4;
+	border-radius: 4px 0 4px 0;
+}
+
+.minimizable_header
+{
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	padding: 3px 7px;
+	font-size: 12px;
+	border-radius: 4px 0 4px 0;
+
+}
+
+#deckModDiv:after
+{
+	content: "Deck Modifications";
+}
+#addCardDiv:after
+{
+	content: "Add A Card To The Main Deck";
+}

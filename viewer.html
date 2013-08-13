@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>MTGViews Card Viewer</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+ </head>
+ <body>
+  <div id="the_whole_page">
+   <div id="header">{{loadfile 'partials/header.html'}}</div>
+	<div id="body">
+		<div id="addCardDiv" class="inset_header span6">
+			<input type="text" data-provide="typeahead" data-source="{{cardsavailable}}" autocomplete="off"> <button ng-click='addCardToPool()'>Add</button>
+		</div><br />
+		<div class="span6">
+			<label for="stacked">Stack Cards?</label><input type="checkbox" id="stacked">
+		</div>
+		<div id="deckModDiv" class="span12 inset_header">
+			<div class="row"> <!-- necessary for grid system... :( -->
+			<div id="visualModDiv" class="span8">
+				<h2>Mainboard</h2>
+				<div id="visualMainBoard">
+				{{#each deck.mainboard.models}}
+				 {{loadfile 'partials/mainboardcard.html'}}
+				{{/each}}
+				</div>
+				<hr />
+				<h2>Side</h2>
+				<div id="visualSideBoard">
+				{{#each deck.sideboard.models}}
+				 {{loadfile 'partials/sideboardcard.html'}}
+				{{/each}}
+				</div>
+				<h2>Pool</h2>
+				<div id="visualPoolBoard">
+				{{#each deck.pool.models}}
+				 {{loadfile 'partials/poolcard.html'}}
+				{{/each}}
+				</div>
+			</div>
+			<div id="textBoard" class="span4">
+				<textarea rows="8" class="input-block-level textualMainBoard" data-board="mainboard">{{deckToText deck.mainboard.models}}</textarea><br />
+				<textarea rows="8" class="input-block-level textualSideBoard" data-board="sideboard">{{deckToText deck.sideboard.models}}</textarea><br />
+			</div>
+			</div>
+			<button>Save</button>
+		</div>
+	</div>
+  </div>
+
+  <script data-main="js/main.js" src="lib/require.js"></script>
+ </body>
+</html>
