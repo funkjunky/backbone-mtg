@@ -12,6 +12,7 @@ define(['jquery', 'helper/createnewcard', 'helper/removecardfromselection', 'hel
 			}
 		});
 
+		//when #stacked is clicked.
 		$("#the_whole_page").on("change", "#stacked", function() {
 			if($(this).prop('checked'))
 				for(var key in currentDeck)
@@ -61,6 +62,7 @@ define(['jquery', 'helper/createnewcard', 'helper/removecardfromselection', 'hel
 			removeCardFromSelection(currentDeck.pool, $(this));
 		});
 
+		//when one of the textual boards changes
 		$("#textBoard").on("change", ".textualMainBoard,.textualSideBoard", function() {
 			var newboard = {};
 

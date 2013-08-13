@@ -74,7 +74,7 @@ requirejs(
 			$(views[key].selector).html(views[key].render());
 
 		//fetch the pool data, then render the pool
-		//TODO: make nicer...
+		//TODO: this would normally be tied to an event, or loaded with other data... so this won't be changed till I've made the project more complete.
 		currentDeck.pool.fetch({
 			reset: true,
 			success: function(collection) {
@@ -86,18 +86,17 @@ requirejs(
 		var addCB = function (model, collection) {
 			//create the new card div
 			var carddiv = views[collection.cardpartial].setContext(model).render();
+
 			//try and find an element to put ours before...
 			var found = false;
 			$(collection.selector).find(".cardchoice").each(function(i, el) {
 				if($(el).data("name") > model.get("name"))
-				{
-					found = $(el).before(carddiv);
-					return false;
-				}
+					return !(found = $(el).before(carddiv));
 			});
 			//if none are found, then just append the element.
 			if(!found)
 				$(collection.selector).append(carddiv);
+
 			//stack the card if need be
 			if($("#stacked").prop("checked"))
 				stackcard(model, collection.selector);
@@ -106,12 +105,18 @@ requirejs(
 			$("#textBoard").html(views.textBoard.render());
 		};
 		var removeCB = function (model, collection) {
+			//remove the card
 			$(collection.selector).find("."+model.id).remove();
-			//we have to restak the cards to show a new lead.
+
+			//we have to restack the cards to show a new lead.
 			if($("#stacked").prop("checked"))
 				stackcard(model, collection.selector);
+
+			//rerender the textual boards.
 			$("#textBoard").html(views.textBoard.render());
 		};
+
+		//attack the add and remove callbacks on all of the decks collections.
 		for(var key in currentDeck)
 		{
 			currentDeck[key].on("add", addCB);
